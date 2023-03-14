@@ -15,8 +15,9 @@ class ApiController extends Controller
         ];
         $result = OpenAI::chat()->create([
             'model' => 'gpt-3.5-turbo',
-            'messages' => $messages  
+            'messages' => $messages,
         ]);
+
         return Arr::get($result, 'choices.0.message');
     }
 }
